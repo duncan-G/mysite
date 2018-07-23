@@ -1,0 +1,22 @@
+<div fxLayout="row" fxLayoutAlign="start center">
+
+    <div class="article-list" fxFlex FlexLayout="column">
+
+        <div class="article-meta-data">
+            {{ article.time }}
+        </div>
+        <div class="article-title text-truncate">
+            {{ article.title }}
+        </div>
+
+        <div class="tags" fxLayout="row wrap" fxHide fxShow.gt-sm>
+            <div class="tag" *ngFor="let tagId of article.tags"
+                 fxLayout="row" fxLayoutAlign="start center">
+                <div class="tag-color"
+                     [ngStyle]="{'background-color': (tags$ | async) | getById:tagId:'color'}"></div>
+                <div class="tag-title">{{(tags$ | async) | getById:tagId:'title'}}</div>
+            </div>
+        </div>
+
+    </div>
+</div>

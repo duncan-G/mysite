@@ -1,0 +1,118 @@
+@import "src/app/shared/scss/app";
+@import url('https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro');
+
+:host {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+
+    .center {
+
+        .content {
+
+            .article-list {
+                width: 30%;
+
+                .article-list-header {
+                    height: 150px;
+                    background-image: url('/assets/backgrounds/header-bg.png');
+                    font-size: 50px;
+                    position: relative;
+
+                    .toggle-article-list {
+                        position: absolute;
+                        right: 0px;
+                        top: 0px;
+                    }
+                }
+
+                .toolbar {
+                    border-right: 1px solid rgba(0, 0, 0, .12);
+                           
+                    .search-wrapper {        
+                        .sidenav-toggle {
+                            margin: 0;
+                            width: 56px;
+                            height: 56px;
+                            background: #FFF;
+                            border-radius: 0;
+                            border-right: 1px solid rgba(0, 0, 0, .12);
+                        }
+        
+                        .search {
+                            width: 100%;
+                            height: 56px;
+                            line-height: 56px;
+                            padding: 18px 18px 18px 0px;
+        
+                            input {
+                                height: 56px;
+                                padding-left: 16px;
+                                color: rgba(0, 0, 0, 0.54);
+                                border: none;
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+                app-article-list {
+                    height: -webkit-calc(100% - 225px);
+                    height: -moz-calc(100% - 225px);
+                    height: calc(100% - 225px);
+                    overflow: scroll;
+                }
+            }
+
+            .article-detail {
+                height: 100%;
+                
+                .article-back {
+                    position: fixed;
+                }
+            }
+        }
+
+
+        .content-card {
+
+            @include media-breakpoint(lt-lg) {
+
+                .article-list {
+                    border-right: none;
+                    flex: 100;
+                }
+
+                .article-list ,
+                .article-details {
+                    flex: 1 0 100%;
+                }
+
+                .article-details {
+                   // display: none !important;
+                }
+
+                &.current-article-selected {
+
+                    .toolbar {
+                        padding-left: 16px !important;
+
+                        .article-selection {
+                            // display: none !important;
+                        }
+                    }
+
+                    .content {
+
+                        .article-list  {
+                            // display: none !important;
+                        }
+
+                        .article-details {
+                            // display: flex !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

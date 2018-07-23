@@ -1,0 +1,36 @@
+// App breakpoints and material css
+@import "app";
+
+// Perfect scrollbar
+@import '~perfect-scrollbar/css/perfect-scrollbar';
+
+// Include core Angular Material styles
+@include mat-core();
+
+// Setup the typography
+@include angular-material-typography($typography);
+
+// Create an Angular Material theme from the $theme map
+@include angular-material-theme($theme);
+
+// Base
+@import "base/typography";
+
+// Layouts
+@import "layouts/reset";
+@import "layouts/normalize";
+@import "layouts/scrollbars";
+@import "layouts/helpers";
+@import "layouts/globals";
+@import "layouts/icons";
+@import "layouts/colors";
+@import "layouts/angular-material-fix";
+@import "layouts/page-layouts";
+@import "layouts/cards";
+@import "layouts/navigation";
+@import "layouts/forms";
+@import "layouts/toolbar";
+@import "layouts/print";
+
+// Plugins
+@import "plugins/plugins";

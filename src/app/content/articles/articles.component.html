@@ -1,0 +1,79 @@
+<div id="articles" class="page-layout carded left-sidenav" appPerfectScrollbar>
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg mat-accent-bg"></div>
+    <!-- / TOP BACKGROUND -->
+    
+    <mat-sidenav-container>
+
+        <!-- SIDENAV -->
+        <mat-sidenav class="sidenav mat-sidenav-opened" position="start" mode="side" opened="false"
+                     appMatSidenavHelper="carded-left-sidenav" mat-is-locked-open="gt-lg">
+            <app-articles-sidenav></app-articles-sidenav>
+        </mat-sidenav>
+        <!-- / SIDENAV -->
+
+        <!-- CENTER -->
+        <div class="center">
+
+            <!-- CONTENT CARD -->
+            <div class="content-card mat-white-bg" [ngClass]="{'current-article-selected':currentArticle$ | async}">
+
+
+                <!-- CONTENT -->
+                <div class="content" fxLayout="row">
+
+                    <div class="article-list" fxFlex="30" fxFlex.lt-lg="100">
+                        <!-- CONTENT TOOLBAR -->
+                        <div fxLayout="row" fxLayoutAlign="center center" class="article-list-header mat-blue-50-bg">
+                            <div class="toggle-articles-list">
+                                <button mat-icon-button class="sidenav-toggle"
+                                        fxHide.lt-lg aria-label="Toggle Article List">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                            </div>
+                            <div>Articles</div>
+                        </div>
+                        <div class="toolbar px-8 py-8">
+                            <div class="search-wrapper" fxFlex fxLayout="row" fxLayoutAlign="start center">
+        
+                                <button mat-icon-button class="sidenav-toggle"
+                                        appMatSidenavToggler="carded-left-sidenav"
+                                        fxHide.gt-lg aria-label="Toggle Sidenav">
+                                    <mat-icon>menu</mat-icon>
+                                </button>
+            
+                                <div class="search mat-white-bg" flex fxLayout="row" fxLayoutAlign="start center">
+                                    <mat-icon>search</mat-icon>
+                                    <input [formControl]="searchInput" placeholder="Search" fxFlex>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- / CONTENT TOOLBAR -->
+
+                        <app-article-list appPerfectScrollbar [articles]="articles$ | async" [currentArticle]="currentArticle$ | async"></app-article-list>
+                    </div>
+
+                    
+                    <div class="article-detail" fxFlex appPerfectScrollbar>
+                        <div *ngIf="currentArticle$ | async" fxHide.gt-md>
+                            <button mat-icon-button (click)="viewArticlesList()">
+                                <mat-icon>arrow_back</mat-icon>
+                            </button>
+                        </div>
+                        <app-article-details *ngIf="currentArticle$ | async" [article]="currentArticle$ | async"></app-article-details>
+                    </div>
+
+                </div>
+                <!-- / CONTENT -->
+
+            </div>
+            <!-- / CONTENT CARD -->
+
+        </div>
+        <!-- / CENTER -->
+
+    </mat-sidenav-container>
+
+</div>

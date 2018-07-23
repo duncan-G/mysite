@@ -1,0 +1,38 @@
+<!-- SIDENAV HEADER -->
+<div fxLayout="column" fxLayoutAlign="space-between start"
+     class="header p-24 pb-4" ngClass="mat-accent-bg" ngClass.gt-lg="white-fg">
+
+    <div class="logo" fxFlex fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon class="logo-icon s-32">library_books</mat-icon>
+        <span class="logo-text">Articles</span>
+    </div>
+
+</div>
+<!-- / SIDENAV HEADER -->
+
+<!-- SIDENAV CONTENT -->
+<div class="content" appPerfectScrollbar>
+
+
+    <div class="nav">
+
+        <div class="nav-subheader">Tags</div>
+        <div class="nav-item">
+            <a class="nav-link" matRipple [routerLink]="'/articles/latest'"
+            routerLinkActive="active">
+                <mat-icon class="nav-link-icon" [ngStyle]="{'color':'f5f2f3'}">label</mat-icon>
+                <span>All Articles</span>
+            </a>
+        </div>
+        <div class="nav-item" *ngFor="let tag of (tags$ | async)">
+            <a class="nav-link" matRipple [routerLink]="'/articles/tag/' + tag.handle"
+               routerLinkActive="active">
+                <mat-icon class="nav-link-icon" [ngStyle]="{'color':tag.color}">label</mat-icon>
+                <span>{{tag.title}}</span>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+<!-- / SIDENAV CONTENT -->

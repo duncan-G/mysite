@@ -1,0 +1,9 @@
+<div *ngIf="articles.length === 0" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+    <span class="no-articles-text hint-text">No articles</span>
+</div>
+
+<div class="article-list" *ngIf="articles.length !== 0">
+    <app-article-list-item matRipple *ngFor="let article of articles" [article]="article" (click)="readArticle(article.id)"
+                         [ngClass]="{'current-article':article?.id == currentArticle?.id}">
+    </app-article-list-item>
+</div>

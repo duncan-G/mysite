@@ -1,0 +1,20 @@
+<div>
+    <div class="article-header" fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <div class="meta-data" flex>{{article.time}}</div>
+            <div class="title" flex>{{article.title}}</div>
+
+            <div class="tags" fxLayout="row wrap">
+                <div class="tag" *ngFor="let tagId of article.tags"
+                     fxLayout="row" fxLayoutAlign="start center">
+                    <div class="tag-color" [ngStyle]="{'background-color': (tags$ | async) | getById:tagId:'color'}"></div>
+                    <div class="tag-title">{{(tags$ | async) | getById:tagId:'title'}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="article-content">
+        <div [innerHTML]="article.content"></div>
+    </div>
+</div>

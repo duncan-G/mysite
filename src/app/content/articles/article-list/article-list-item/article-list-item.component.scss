@@ -1,0 +1,88 @@
+@import 'src/app/shared/scss/app';
+
+:host {
+    flex-shrink: 0;
+    position: relative;
+    padding: 40px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    background: #FAFAFA;
+
+    &.unread {
+        background: #FFFFFF;
+
+        .article-list {
+
+            .article-meta-data {
+                font-weight: 700;
+            }
+
+            .article-title {
+                font-weight: 700;
+            }
+
+            .tags {
+                background: #FFFFFF;
+            }
+        }
+    }
+
+    &.selected {
+        background: #FFF8E1;
+
+        .article-list {
+            .tags {
+                background: #FFF8E1;
+            }
+        }
+    }
+
+    &.current-article {
+        background: #E3F2FD;
+
+        .article-list {
+            .tags {
+                background: #E3F2FD;
+            }
+        }
+    }
+
+    .article-list {
+        overflow: hidden;
+        width: 0;
+        margin-left: 16px;
+        position: relative;
+
+        .article-meta-data {
+            margin-bottom: 8px;
+            font-size: 12px;
+            color:grey;
+        }
+
+        .article-title {
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .tags {
+            background: #FFFFFF;
+            padding-right: 6px;
+            margin-top: 8px;
+
+            .tag {
+                font-size: 11px;
+                border-radius: 2px;
+                margin: 0 4px 0 0;
+                padding: 3px 8px;
+                background-color: rgba(0, 0, 0, 0.08);
+
+                .tag-color {
+                    width: 8px;
+                    height: 8px;
+                    margin-right: 8px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
